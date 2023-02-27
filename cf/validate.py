@@ -8,6 +8,12 @@ template = ''
 
 ############------------ FUNCTION(S) ------------##############################
 class TestCloudFormation(unittest.TestCase):
+    '''
+     TODO:
+        - test launch form is up-to-date
+        - test launch form launches what is expected
+        - test infra is resourced as expected
+    '''
     def test_cf_template_location(self):
         r = requests.get(template)
         self.assertEqual(r.status_code,200)
