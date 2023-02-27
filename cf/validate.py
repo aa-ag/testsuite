@@ -4,7 +4,7 @@ import requests
 
 ############------------ FUNCTION(S) ------------##############################
 class TestCloudFormation(unittest.TestCase):
-    def test_hello_world(self):
+    def test_template_location(self):
         template = ''
         r = requests.get(template)
         self.assertEqual(r.status_code,200)
