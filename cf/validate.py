@@ -1,11 +1,13 @@
 ############------------ IMPORTS ------------##################################
 import unittest
+import requests
 
-############------------ GLOBAL VARIABLE(S) ------------#######################
 ############------------ FUNCTION(S) ------------##############################
 class TestCloudFormation(unittest.TestCase):
     def test_hello_world(self):
-        self.assertEqual('hello world'.upper(), 'HELLO WORLD')
+        template = ''
+        r = requests.get(template)
+        self.assertEqual(r.status_code,200)
 
 
 ############------------ DRIVER CODE ------------##############################ß
