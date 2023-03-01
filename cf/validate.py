@@ -6,7 +6,7 @@ import subprocess
 ############------------ GLOBAL VARIABLE(S) ------------#######################
 template = ''
 
-############------------ FUNCTION(S) ------------##############################
+############------------ TEST(S) ------------##############################
 class TestCloudFormation(unittest.TestCase):
     '''
      TODO:
