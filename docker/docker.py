@@ -7,6 +7,9 @@ import os.path
 class TestDocker(unittest.TestCase):
     def test_dockerfile_exists(self):
         self.assertTrue(os.path.exists('docker/Dockerfile'))
+
+    def test_dockerignore_exists(self):
+        self.assertTrue(os.path.exists('docker/.dockerignore'))
     
     '''
     TODO: 
