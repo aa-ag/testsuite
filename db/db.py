@@ -42,6 +42,9 @@ class TestDB(unittest.TestCase):
     
     def test_x_model(self):
         self.assertTrue(User.email)
+    
+    def test_n_attributes_model(self):
+        self.assertTrue(dir(User),3)
 
 
 ############------------ DRIVER CODE ------------##############################ß
