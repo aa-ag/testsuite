@@ -4,9 +4,6 @@ import requests
 import subprocess
 import os
 
-############------------ GLOBAL VARIABLE(S) ------------#######################
-template = ''
-
 ############------------ TEST(S) ------------##############################
 class TestCloudFormation(unittest.TestCase):
     '''
@@ -16,7 +13,11 @@ class TestCloudFormation(unittest.TestCase):
         - test infra is resourced as expected
     '''
     def test_cf_template_existence(self):
-        pass
+        location = ''
+        import_command = f'aws s3 cp {location}'
+        subprocess.run(import_command, shell=True)
+        localcheck = os.path.isfile('')
+        self.assertTrue(localcheck)
 
     # def test_cf_template_location(self):
     #     r = requests.get(template)
