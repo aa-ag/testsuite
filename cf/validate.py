@@ -12,26 +12,19 @@ class TestCloudFormation(unittest.TestCase):
         - test launch form launches what is expected
         - test infra is resourced as expected
     '''
-    def test_cf_template_existence(self):
+    def test_cf_template_existence1(self):
         location = ''
         import_command = f'aws s3 cp {location}'
         subprocess.run(import_command, shell=True)
         localcheck = os.path.isfile('')
         self.assertTrue(localcheck)
 
-    # def test_cf_template_location(self):
-    #     r = requests.get(template)
-    #     self.assertEqual(r.status_code,200)
-    
-    # def test_cf_template_url_validity(self):
-    #     validation_command = f'aws cloudformation validate-template --template-url {template}'
-    #     r = subprocess.run(validation_command, shell=True)
-    #     self.assertNotIn('error',r)
-
-    # def test_cf_template_body_validity(self):
-    #     validation_command = f'aws cloudformation validate-template --template-body {template}'
-    #     r = subprocess.run(validation_command, shell=True)
-    #     self.assertNotIn('error',r)
+    def test_cf_template_existence2(self):
+        key, bucket = '', ''
+        command = f'aws s3api head-object --bucket {bucket} --key {key}'
+        output = subprocess.run(command, shell=True, capture_output=True)
+        stdout_stderr = f'{output.stdout.decode("utf-8")} {output.stderr.decode("utf-8")}'
+        self.assertNotIn('error', stdout_stderr.lower())
 
 
 ############------------ DRIVER CODE ------------##############################ß
