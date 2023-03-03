@@ -3,6 +3,7 @@ import unittest
 from time import sleep
 import subprocess
 import psycopg2
+from models.models import User
 
 ############------------ TEST(S) ------------##############################
 class TestDB(unittest.TestCase):
@@ -38,6 +39,9 @@ class TestDB(unittest.TestCase):
         except:
             exists = 0
         self.assertNotEqual(exists, 0)
+    
+    def test_x_model(self):
+        self.assertTrue(User.email)
 
 
 ############------------ DRIVER CODE ------------##############################ß
