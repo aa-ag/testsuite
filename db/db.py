@@ -23,6 +23,22 @@ class TestDB(unittest.TestCase):
             connected = 0
         self.assertEqual(connected, 1)
 
+    def test_db_exists(self):
+        exists = 0
+        try:
+            sql = "SELECT datname FROM pg_catalog.pg_database WHERE lower(datname) = lower('dbname');"
+            conn = psycopg2.connect(
+                "credentials"
+            )
+            cur = conn.cursor()
+            cur.execute(sql)
+            result = cur.fetchall()
+            exists = result
+            conn.close()
+        except:
+            exists = 0
+        self.assertNotEqual(exists, 0)
+
 
 ############------------ DRIVER CODE ------------##############################ß
 if __name__ == "__main__":
