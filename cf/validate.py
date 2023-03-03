@@ -26,6 +26,14 @@ class TestCloudFormation(unittest.TestCase):
         stdout_stderr = f'{output.stdout.decode("utf-8")} {output.stderr.decode("utf-8")}'
         self.assertNotIn('error', stdout_stderr.lower())
 
+    def test_cf_template_url_validity(self):
+        template_location = ''
+        command = f'aws cloudformation validate-template --template-url {template_location}'
+        output = subprocess.run(command, shell=True, capture_output=True)
+        stdout_stderr = f'{output.stdout.decode("utf-8")} {output.stderr.decode("utf-8")}'
+        self.assertNotIn('error', stdout_stderr.lower())
+
+
 
 ############------------ DRIVER CODE ------------##############################ß
 if __name__ == '__main__':
